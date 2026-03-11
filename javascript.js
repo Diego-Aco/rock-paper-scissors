@@ -31,16 +31,32 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    const num = Number(prompt("Enter a number for rock [1], paper [2], or scissors [3]"));
-    return numToChoice(num);
+    const choice = (prompt("Type in a choice and hit enter: rock paper scissors"));
+    return choice.toLowerCase();
 }
 
-function nextRound() {
+// function determineWinner(humanChoice, cpuChoice) {
+//     //TODO: finish this function
+//     if (humanChoice === cpuChoice) {
+//         return "tie";
+//     }
+
+//     if (humanChoice==="rock") {
+
+//     } else if (humanChoice ==="paper") {
+
+//     } else { //humanChoice must be "scissors"
+
+//     }
+
+// }
+
+function playRound() {
     const humanChoice = getComputerChoice();
     const cpuChoice = getComputerChoice();
     //TODO: create and call a function here that determines the winner
 }
 
-// const myChoice = getHumanChoice();
-// console.log("You chose: " + myChoice);
+const myChoice = getHumanChoice();
+console.log("You chose: " + myChoice);
 

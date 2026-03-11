@@ -35,28 +35,67 @@ function getHumanChoice() {
     return choice.toLowerCase();
 }
 
-// function determineWinner(humanChoice, cpuChoice) {
-//     //TODO: finish this function
-//     if (humanChoice === cpuChoice) {
-//         return "tie";
-//     }
+function determineResult(humanChoice, cpuChoice) {
+    const humanWinStr = "You win!";
+    const cpuWinStr = "CPU wins!";
+    const tieStr = "It's a tie!";
 
-//     if (humanChoice==="rock") {
+    if (humanChoice === cpuChoice) {
+        return tieStr;
+    }
 
-//     } else if (humanChoice ==="paper") {
-
-//     } else { //humanChoice must be "scissors"
-
-//     }
-
-// }
-
-function playRound() {
-    const humanChoice = getComputerChoice();
-    const cpuChoice = getComputerChoice();
-    //TODO: create and call a function here that determines the winner
+    //Below is every non-tie event:
+    if (humanChoice==="rock") {
+        if (cpuChoice==="paper") {
+            return cpuWinStr;
+        } else {    //cpu played scissors
+            return humanWinStr;
+        }
+    } else if (humanChoice ==="paper") {
+        if (cpuChoice==="rock") {
+            return humanWinStr;
+        } else {    //cpu played scissors
+            return cpuWinStr;
+        }
+    } else { //humanChoice must be "scissors"
+        if (cpuChoice==="rock") {
+            return cpuWinStr;
+        } else {    //cpu played paper
+            return humanWinStr;
+        }
+    }
 }
 
-const myChoice = getHumanChoice();
-console.log("You chose: " + myChoice);
+function incrementScores(result) {
+    if (result==="You win!") {
+        humanScore++;
+    } else if (result==="CPU wins!") {
+        cpuScore++;
+    } else {
+        return;
+    }
+}
 
+function playRound() {
+    const humanChoice = getHumanChoice();
+    const cpuChoice = getComputerChoice();
+    //TODO: create and call a function here that determines the winner
+    const result = determineResult(humanChoice, cpuChoice);
+    console.log(`You played ${humanChoice} and the CPU played ${cpuChoice}.\n${result}`);
+    
+    //increment scores based on winner
+    incrementScores(result);
+    console.log(`Your Score: ${humanScore}\tCPU Score: ${cpuScore}`);
+    
+}
+
+function playGame() {
+    for (let i =0; i<5; i++) {
+
+    }
+}
+
+// const myChoice = getHumanChoice();
+// console.log("You chose: " + myChoice);
+
+playRound();

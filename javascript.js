@@ -1,3 +1,6 @@
+let humanScore = 0;
+let cpuScore = 0;
+
 function getRandomIntInclusive(min, max) {
   const minCeiled = Math.ceil(min);
   const maxFloored = Math.floor(max);
@@ -25,17 +28,6 @@ function getComputerChoice() {
     const num = getRandomIntInclusive(min, max);
     
     return numToChoice(num);
-    // switch(num) {
-    //     case 1:
-    //         return "rock";
-    //         break;
-    //     case 2:
-    //         return "paper";
-    //         break;
-    //     case 3:
-    //         return "scissors";
-    //         break;
-    // }
 }
 
 function getHumanChoice() {
@@ -43,12 +35,12 @@ function getHumanChoice() {
     return numToChoice(num);
 }
 
-
 function nextRound() {
     const humanChoice = getComputerChoice();
     const cpuChoice = getComputerChoice();
+    //TODO: create and call a function here that determines the winner
 }
 
-const myChoice = getHumanChoice();
-console.log("You chose: " + myChoice);
+// const myChoice = getHumanChoice();
+// console.log("You chose: " + myChoice);
 
